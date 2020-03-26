@@ -19,6 +19,7 @@ ArrayList<String> doctorName,clinicName,date;
         doctor=findViewById(R.id.doctors);
         times=findViewById(R.id.times);
         clinic=findViewById(R.id.clinics);
+        //todo:toolbar
         //--------------------------------
         doctorName = new ArrayList<>();
         clinicName = new ArrayList<>();
@@ -39,7 +40,7 @@ ArrayList<String> doctorName,clinicName,date;
         date.add("Monday, 12:30 pm");
         date.add("Friday, 9:15 am");
         //------------------------------------
-        times.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+/*        times.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 times.animate();
@@ -56,7 +57,7 @@ ArrayList<String> doctorName,clinicName,date;
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 doctor.animate();
             }
-        });
+        });*/
     }
 
     public void registerAppointment(View view) {

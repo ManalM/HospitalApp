@@ -2,6 +2,7 @@ package com.example.hospital;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logIn(View view) {
-        
+        startActivity(new Intent(MainActivity.this, ViewPatient.class));
     }
 }
