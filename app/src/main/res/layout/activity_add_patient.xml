@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddPatient">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_edit"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="@drawable/gradiant_btn"
+        android:fontFamily="casual"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:title="Add new appointment"
+        app:titleTextColor="@color/colorPrimary" />
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@drawable/gradiant_btn">
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="200dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/clinics"
+                android:layout_width="match_parent"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content" />
+
+
+            <Spinner
+                android:id="@+id/doctors"
+                android:layout_margin="20dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/times"
+                android:layout_margin="20dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@drawable/gradiant_btn"
+                android:drawableStart="@drawable/add"
+                android:drawableLeft="@drawable/add"
+                android:drawablePadding="10dp"
+                android:text="Register appointment"
+                android:onClick="registerAppointment"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

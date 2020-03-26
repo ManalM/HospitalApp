@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".ViewPatient">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_edit"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        android:background="@drawable/gradiant_btn"
+        android:fontFamily="casual"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:title="View Information"
+        app:titleTextColor="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/gradiant_btn" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+
+        android:padding="10dp"
+        android:drawableLeft="@drawable/finger"
+        android:layout_below="@id/tool_edit"
+        android:text="TextView"
+        android:textSize="30dp" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/name"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="20dp"
+
+        app:alignmentMode="alignMargins"
+        app:cardCornerRadius="10dp"
+        app:columnCount="2"
+        app:columnOrderPreserved="false"
+        app:rowCount="2">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+
+            <TextView
+                android:id="@+id/situation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:drawableTop="@drawable/sit"
+                android:text="TextView" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <TextView
+                android:id="@+id/blood_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/blood"
+                android:text="TextView" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <TextView
+                android:id="@+id/height"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+
+                android:drawableTop="@drawable/height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <TextView
+                android:id="@+id/weight"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:drawableTop="@drawable/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grid"
+        android:layout_margin="15dp"
+        android:background="@drawable/gradiant_btn"
+        android:drawableStart="@drawable/edit"
+        android:drawableLeft="@drawable/edit"
+        android:drawablePadding="10dp"
+        android:onClick="Edit"
+        android:text="Edit your information"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button"
+        android:layout_margin="15dp"
+        android:background="@drawable/gradiant_btn"
+        android:drawableStart="@drawable/add"
+        android:drawableLeft="@drawable/add"
+        android:drawablePadding="10dp"
+        android:onClick="Book"
+        android:text="Book new appointment"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+</RelativeLayout>
