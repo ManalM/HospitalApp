@@ -6,16 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".EditInfo">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tool"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+    <include layout="@layout/tool_bar"/>
 
-        android:background="@drawable/gradiant_btn"
-        android:fontFamily="casual"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:title="Edit Information"
-        app:titleTextColor="@color/colorPrimary" />
 
     <RelativeLayout
         android:id="@+id/back"

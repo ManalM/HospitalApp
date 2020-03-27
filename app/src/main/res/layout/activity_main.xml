@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <include layout="@layout/tool_bar"/>
 
     <RelativeLayout
         android:id="@+id/back"
@@ -21,8 +22,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="41dp"
-            android:layout_marginRight="200dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginRight="190dp"
             android:background="@drawable/logo1" />
 
         <TextView
@@ -31,7 +32,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="82dp"
             android:layout_marginEnd="96dp"
             android:layout_marginRight="96dp"
             android:fontFamily="casual"

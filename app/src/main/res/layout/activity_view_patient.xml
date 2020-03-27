@@ -6,17 +6,9 @@
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".ViewPatient">
+    <include
+        layout="@layout/tool_bar"/>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tool_edit"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-
-        android:background="@drawable/gradiant_btn"
-        android:fontFamily="casual"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:title="View Information"
-        app:titleTextColor="@color/colorPrimary" />
 
     <RelativeLayout
         android:id="@+id/back"
@@ -28,12 +20,11 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:gravity="center"
+        android:layout_marginTop="60dp"
 
         android:padding="10dp"
         android:drawableLeft="@drawable/finger"
-        android:layout_below="@id/tool_edit"
         android:text="TextView"
         android:textSize="30dp" />
 

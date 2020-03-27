@@ -1,11 +1,14 @@
 package com.example.hospital;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,7 +22,12 @@ ArrayList<String> doctorName,clinicName,date;
         doctor=findViewById(R.id.doctors);
         times=findViewById(R.id.times);
         clinic=findViewById(R.id.clinics);
-        //todo:toolbar
+        Toolbar  toolbar = (Toolbar)findViewById(R.id.tool);
+        TextView toolbarText =findViewById(R.id.toolbar_title);
+
+        toolbar.setTitle("");
+        toolbarText.setText("Add appointment");
+
         //--------------------------------
         doctorName = new ArrayList<>();
         clinicName = new ArrayList<>();
