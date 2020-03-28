@@ -14,26 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_below="@id/tool"
-        android:background="@drawable/gradiant_btn">
-
-
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-
-
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="149dp"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginRight="162dp"
-            android:background="@drawable/logo1" />
-
-    </RelativeLayout>
+        android:background="@drawable/gradiant_btn"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -54,7 +35,20 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/edit_username"
+            android:id="@+id/edit_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:ems="10"
+
+            android:hint="Edit your name"
+            android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -64,8 +58,8 @@
                 android:layout_weight="1"
                 android:ems="10"
 
-                android:hint="Edit your name"
-                android:inputType="textPersonName" />
+                android:hint="Edit your email"
+               />
 
             <EditText
                 android:id="@+id/edit_password"

@@ -55,10 +55,11 @@
         android:layout_marginBottom="200dp"
         app:cardCornerRadius="10dp">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="15dp"
+
             android:gravity="center"
             android:orientation="vertical">
 
@@ -86,17 +87,46 @@
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp
+"
                 android:background="@drawable/gradiant_btn"
                 android:drawableStart="@drawable/correct"
                 android:drawableLeft="@drawable/correct"
                 android:drawablePadding="10dp"
-                android:text="Log in"
                 android:onClick="logIn"
+                android:text="Log in"
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Create new patient?" />
+
+                <TextView
+                    android:id="@+id/register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAllCaps="true"
+                    android:layout_margin="3dp"
+                    android:padding="5dp"
+
+                    android:textColor="#72C8F7"
+                    android:text="Register now" />
+            </LinearLayout>
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
 

@@ -18,12 +18,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
 
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="200dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="200dp"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -36,26 +35,95 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/clinics"
+            <EditText
+                android:id="@+id/add_email"
                 android:layout_width="match_parent"
-                android:layout_margin="20dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:ems="10"
 
+                android:hint="Enter your email" />
 
-            <Spinner
-                android:id="@+id/doctors"
-                android:layout_margin="20dp"
-
+            <EditText
+                android:id="@+id/add_username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
 
-            <Spinner
-                android:id="@+id/times"
-                android:layout_margin="20dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:ems="10"
 
+                android:hint="Enter your name"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/add_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:ems="10"
+
+                android:hint="Enter your password"
+                android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/add_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:ems="10"
+
+                android:hint="Confirm your password"
+                android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/add_health"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:ems="10"
+
+                android:hint="your health situation"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/add_blood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:ems="10"
+
+                android:hint="Enter your blood type"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/add_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:ems="10"
+
+                android:hint="Enter your height meter"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/add_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:ems="10"
+
+                android:hint="Enter your weight in KG"
+                android:inputType="numberDecimal" />
+
 
             <Button
                 android:id="@+id/button"
@@ -66,7 +134,7 @@
                 android:drawableStart="@drawable/add"
                 android:drawableLeft="@drawable/add"
                 android:drawablePadding="10dp"
-                android:text="Register appointment"
+                android:text="Register new patient"
                 android:onClick="registerAppointment"
                 android:textColor="#fff"
                 android:textSize="18sp"
