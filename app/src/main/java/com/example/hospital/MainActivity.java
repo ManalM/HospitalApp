@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.hospital.database.DatabaseHelper;
 import com.example.hospital.database.InputValidation;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private final AppCompatActivity activity = MainActivity.this;
