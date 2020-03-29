@@ -17,13 +17,14 @@ import static com.example.hospital.database.DBHelper.TABLE_USER;
 public class DBAdapter {
     SQLiteDatabase db;
     DBHelper myhelper;
-    public DBAdapter(Context context){
+
+    public DBAdapter(Context context) {
         myhelper = new DBHelper(context);
         db = myhelper.getWritableDatabase();
 
     }
 
-    public void insertData(String name,String email,String pass,String blood,String situation,String height,String weight){
+    public void insertData(String name, String email, String pass, String blood, String situation, String height, String weight) {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, name);
@@ -35,12 +36,13 @@ public class DBAdapter {
         values.put(COLUMN_USER_SITUATION, situation);
         values.put(COLUMN_USER_BLOOD_TYPE, blood);
         //long id =
-                db.insert(DBHelper.TABLE_USER, null , values);
+        db.insert(DBHelper.TABLE_USER, null, values);
 
         db.close();
-    //    return id;
+        //    return id;
     }
-    public void updateData(String email,String name,String pass,String blood,String situation,String height,String weight){
+
+    public void updateData(String email, String name, String pass, String blood, String situation, String height, String weight) {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, name);
@@ -50,49 +52,45 @@ public class DBAdapter {
         values.put(COLUMN_USER_WEIGHT, weight);
         values.put(COLUMN_USER_SITUATION, situation);
         values.put(COLUMN_USER_BLOOD_TYPE, blood);
-        //long id =
-       // db.insert(DBHelper.TABLE_USER, null , values);
+
         String[] arrayOfWhere = {email};
-         db.update(TABLE_USER,values,COLUMN_USER_EMAIL + " = ?",arrayOfWhere);
+        db.update(TABLE_USER, values, COLUMN_USER_EMAIL + " = ?", arrayOfWhere);
         db.close();
-        //    return id;
     }
 
-    public String[] getData(String mail)   {
-       //  final String SQL_SELECT_QUERY = "SELECT * FROM "+ TABLE_USER+" WHERE "+ COLUMN_USER_EMAIL+ "= +"mail;
+    public String[] getData(String mail) {
 
-        db= myhelper.getReadableDatabase();
+        db = myhelper.getReadableDatabase();
         String[] columns = {
                 COLUMN_USER_SITUATION,
                 COLUMN_USER_BLOOD_TYPE,
                 COLUMN_USER_HEIGHT,
                 COLUMN_USER_WEIGHT,
                 COLUMN_USER_EMAIL,
-              COLUMN_USER_PASSWORD,
+                COLUMN_USER_PASSWORD,
                 COLUMN_USER_NAME};
         String selection = COLUMN_USER_EMAIL + " = ?";
 
-        // selection argument
         String[] selectionArgs = {mail};
-        Cursor cursor =db.query(DBHelper.TABLE_USER,columns,selection,selectionArgs,null,null,null);
-        String[] buffer= new String[columns.length];
-        while (cursor.moveToNext()){
-            String email =cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL));
-            String name =cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME));
-            String blood =cursor.getString(cursor.getColumnIndex(COLUMN_USER_BLOOD_TYPE));
-            String height =cursor.getString(cursor.getColumnIndex(COLUMN_USER_HEIGHT));
-            String weight =cursor.getString(cursor.getColumnIndex(COLUMN_USER_WEIGHT));
-            String situation =cursor.getString(cursor.getColumnIndex(COLUMN_USER_SITUATION));
-           String password =cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD));
-            buffer[0]=email;
-            buffer[1]= name;
-            buffer[2]= blood;
-            buffer[3]= height;
-            buffer[4]= weight;
+        Cursor cursor = db.query(DBHelper.TABLE_USER, columns, selection, selectionArgs, null, null, null);
+        String[] buffer = new String[columns.length];
+        while (cursor.moveToNext()) {
+            String email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL));
+            String name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME));
+            String blood = cursor.getString(cursor.getColumnIndex(COLUMN_USER_BLOOD_TYPE));
+            String height = cursor.getString(cursor.getColumnIndex(COLUMN_USER_HEIGHT));
+            String weight = cursor.getString(cursor.getColumnIndex(COLUMN_USER_WEIGHT));
+            String situation = cursor.getString(cursor.getColumnIndex(COLUMN_USER_SITUATION));
+            String password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD));
+            buffer[0] = email;
+            buffer[1] = name;
+            buffer[2] = blood;
+            buffer[3] = height;
+            buffer[4] = weight;
             buffer[5] = situation;
-            buffer[6] =password;
+            buffer[6] = password;
         }
         cursor.close();
-        return  buffer;
+        return buffer;
     }
 }

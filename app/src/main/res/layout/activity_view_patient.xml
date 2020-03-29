@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".ViewPatient">
-    <include
-        layout="@layout/tool_bar"/>
+
+    <include layout="@layout/tool_bar" />
 
 
     <RelativeLayout
@@ -20,11 +20,11 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="60dp"
+        android:gravity="center"
 
         android:padding="10dp"
-        android:drawableLeft="@drawable/finger"
+
         android:text="TextView"
         android:textSize="30dp" />
 
@@ -58,12 +58,12 @@
                 android:id="@+id/situation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:textStyle="bold"
-                android:padding="10dp"
                 android:drawableTop="@drawable/sit"
-                android:text="TextView" />
+                android:padding="10dp"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -80,12 +80,12 @@
                 android:id="@+id/blood_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:textStyle="bold"
-                android:drawablePadding="10dp"
                 android:drawableTop="@drawable/blood"
-                android:text="TextView" />
+                android:drawablePadding="10dp"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -100,14 +100,14 @@
 
             <TextView
                 android:id="@+id/height"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-
-                android:drawableTop="@drawable/height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_gravity="center"
+
+                android:drawableTop="@drawable/height"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -122,14 +122,14 @@
 
             <TextView
                 android:id="@+id/weight"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:padding="10dp"
-                android:drawableTop="@drawable/weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_gravity="center"
+                android:drawableTop="@drawable/weight"
+                android:padding="10dp"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
 
     </androidx.gridlayout.widget.GridLayout>
@@ -149,19 +149,20 @@
         android:textColor="#fff"
         android:textSize="18sp"
         android:textStyle="bold" />
-<!--    <Button
+
+    <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/button"
         android:layout_margin="15dp"
         android:background="@drawable/gradiant_btn"
-        android:drawableStart="@drawable/add"
-        android:drawableLeft="@drawable/add"
+        android:drawableStart="@drawable/log"
+        android:drawableLeft="@drawable/log"
         android:drawablePadding="10dp"
-        android:onClick="Book"
-        android:text="Book new appointment"
+        android:onClick="logout"
+        android:text="Logout"
         android:textColor="#fff"
         android:textSize="18sp"
-        android:textStyle="bold" />-->
+        android:textStyle="bold" />
 </RelativeLayout>

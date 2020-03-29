@@ -31,9 +31,9 @@ public class ViewPatient extends AppCompatActivity {
         height = findViewById(R.id.height);
         weight = findViewById(R.id.weight);
         //---------------database------------
-        getDataFromSQLite();
         //-----------------------------------------
         data = getIntent().getStringArrayExtra("Data");
+        getDataFromSQLite();
 
     }
 
@@ -56,5 +56,9 @@ public class ViewPatient extends AppCompatActivity {
         }
 
 
+    }
+
+    public void logout(View view) {
+        startActivity(new Intent(ViewPatient.this,MainActivity.class));
     }
 }
