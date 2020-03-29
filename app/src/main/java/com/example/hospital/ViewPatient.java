@@ -9,14 +9,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hospital.database.DatabaseHelper;
-import com.example.hospital.database.User;
-
 public class ViewPatient extends AppCompatActivity {
-    private DatabaseHelper databaseHelper;
     private AppCompatActivity activity = ViewPatient.this;
     TextView name, situation, bloodType, height, weight;
     String emailFromIntent;
+    String[] data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,35 +31,30 @@ public class ViewPatient extends AppCompatActivity {
         height = findViewById(R.id.height);
         weight = findViewById(R.id.weight);
         //---------------database------------
-        databaseHelper = new DatabaseHelper(activity);
         getDataFromSQLite();
         //-----------------------------------------
-        emailFromIntent = getIntent().getStringExtra("email");
+        data = getIntent().getStringArrayExtra("Data");
 
     }
 
     public void Edit(View view) {
         Intent accountsIntent = new Intent(activity, EditInfo.class);
-        accountsIntent.putExtra("email", emailFromIntent);
+        accountsIntent.putExtra("email", data[0]);
         startActivity(accountsIntent);
     }
-//todo:error in retrieve search google
-    private void getDataFromSQLite() {
-        try {
-            if (databaseHelper.checkUser(emailFromIntent)) {
 
-                User user = databaseHelper.getUser(emailFromIntent);
-            name.setText(emailFromIntent);
-            situation.setText(user.getSituation());
-            bloodType.setText(user.getBloodType());
-            height.setText(user.getHeight());
-            weight.setText(user.getWeight());}
-            else{
-                Toast.makeText(activity, "error", Toast.LENGTH_SHORT).show();
-            }
-        }catch (Exception e){
-            Toast.makeText(activity, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+    private void getDataFromSQLite() {
+        if (data != null) {
+            name.setText(data[1]);
+            bloodType.setText(data[2]);
+            height.setText(data[3]);
+            weight.setText(data[4]);
+            situation.setText(data[5]);
+
+        } else {
+            Toast.makeText(activity, "no data for the user", Toast.LENGTH_SHORT).show();
         }
+
 
     }
 }

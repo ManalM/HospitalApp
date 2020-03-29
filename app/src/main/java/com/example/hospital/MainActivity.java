@@ -10,16 +10,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hospital.database.DatabaseHelper;
-import com.example.hospital.database.InputValidation;
+import com.example.hospital.database.DBAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private final AppCompatActivity activity = MainActivity.this;
 
-    private InputValidation inputValidation;
-    private DatabaseHelper databaseHelper;
+
+    DBAdapter adapter;
     private EditText username, pass;
-    private TextView register ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
         toolbarText.setText("Log in");
 
         //---------------------database---------
-        databaseHelper = new DatabaseHelper(activity);
-        inputValidation = new InputValidation(activity);
+
+        adapter = new DBAdapter(this);
         //-------------init------------------
         username = findViewById(R.id.username);
         pass = findViewById(R.id.password);
-        register= findViewById(R.id.register);
+        TextView register = findViewById(R.id.register);
         //---------------------------------
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,40 +47,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logIn(View view) {
-        verifyFromSQLite();
+        viewData(view);
     }
 
-    private void verifyFromSQLite() {
-        if (!inputValidation.isInputEditTextFilled(username)) {
-            return;
-        }
-      /*  if (!inputValidation.isInputEditTextEmail(username.getText().toString(), textInputLayoutEmail, getString(R.string.error_message_email))) {
-            return;
-        }*/
-        if (!inputValidation.isInputEditTextFilled(pass)) {
-            return;
-        }
-
-        if (databaseHelper.checkUser(username.getText().toString().trim()
-                , pass.getText().toString().trim())) {
-
-
-            Intent accountsIntent = new Intent(activity, ViewPatient.class);
-            accountsIntent.putExtra("email", username.getText().toString().trim());
-            emptyInputEditText();
-            startActivity(accountsIntent);
-
-
-        } else {
-            Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show();
+    public void viewData(View view) {
+        String[] data = adapter.getData( username.getText().toString());
+        String password = data[6];
+        if (pass.getText().toString().equals(password)){
+        Intent intent = new Intent(this, ViewPatient.class);
+        intent.putExtra("Data", data);
+        startActivity(intent);
+        }else{
+            Toast.makeText(activity, "Wrong password, try again", Toast.LENGTH_SHORT).show();
         }
     }
 
-    /**
-     * This method is to empty all input edit text
-     */
-    private void emptyInputEditText() {
-        username.setText(null);
-        pass.setText(null);
-    }
 }

@@ -120,7 +120,6 @@
                     android:textAllCaps="true"
                     android:layout_margin="3dp"
                     android:padding="5dp"
-
                     android:textColor="#72C8F7"
                     android:text="Register now" />
             </LinearLayout>

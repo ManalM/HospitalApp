@@ -10,17 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hospital.database.DatabaseHelper;
-import com.example.hospital.database.InputValidation;
-import com.example.hospital.database.User;
+import com.example.hospital.database.DBAdapter;
 
 public class EditInfo extends AppCompatActivity {
     private final AppCompatActivity activity = EditInfo.this;
-
-    private InputValidation inputValidation;
-    private DatabaseHelper databaseHelper;
-    private User user;
-    EditText email, name, pass, situation, bloodType, height, weight;
+    String emailFromIntent;
+    EditText name, pass, situation, bloodType, height, weight;
+    DBAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +28,6 @@ public class EditInfo extends AppCompatActivity {
         toolbar.setTitle("");
         toolbarText.setText("Edit Information");
 //-----------init------
-        email = findViewById(R.id.edit_email);
         name = findViewById(R.id.edit_username);
         pass = findViewById(R.id.edit_password);
         situation = findViewById(R.id.edit_health);
@@ -40,51 +35,41 @@ public class EditInfo extends AppCompatActivity {
         height = findViewById(R.id.edit_height);
         weight = findViewById(R.id.edit_weight);
         ///--------database--------------
-        inputValidation = new InputValidation(activity);
-        databaseHelper = new DatabaseHelper(activity);
-        user = new User();
+        emailFromIntent = getIntent().getStringExtra("email");
+        adapter = new DBAdapter(activity);
+
     }
 
     public void submit(View view) {
-        postDataToSQLite();
+        postDataToSQLite(view);
     }
 
-    private void postDataToSQLite() {
-/*        if (!inputValidation.isInputEditTextFilled(bloodType)) {
-            return;
-        }
-        if (!inputValidation.isInputEditTextFilled(email)) {
-            return;
-        }
 
-        if (!inputValidation.isInputEditTextFilled(pass)) {
-            return;
-        }*/
-        String emailFromIntent = getIntent().getStringExtra("email");
+    public void postDataToSQLite(View view) {
+        String nameInput = name.getText().toString();
+        String sitInput = situation.getText().toString();
+        String heightInput = height.getText().toString();
+        String weightInput = weight.getText().toString();
+        String bloodInput = bloodType.getText().toString();
+        String passInput = pass.getText().toString();
 
-        if (databaseHelper.checkUser(emailFromIntent)) {
-
-            user.setName(name.getText().toString().trim());
-            user.setEmail(email.getText().toString().trim());
-            user.setPassword(pass.getText().toString().trim());
-            user.setBloodType(bloodType.getText().toString().trim());
-            user.setSituation(situation.getText().toString().trim());
-            user.setHeight(height.getText().toString().trim());
-            user.setWeight(weight.getText().toString().trim());
-            databaseHelper.updateUser(user);
-
-            // Snack Bar to show success message that record saved successfully
-            Toast.makeText(activity, "patient info updated successfully", Toast.LENGTH_SHORT).show();
-            //    emptyInputEditText();
-            Intent intent=new Intent(activity,ViewPatient.class);
-            intent.putExtra("email",email.getText().toString());
-            startActivity(intent);
+        if (nameInput.isEmpty() && sitInput.isEmpty() && heightInput.isEmpty() && weightInput.isEmpty() &&
+                bloodInput.isEmpty() && passInput.isEmpty()) {
+            Toast.makeText(this, "Enter the values for all fields", Toast.LENGTH_SHORT).show();
         } else {
-            // Snack Bar to show error message that record already exists
-            Toast.makeText(activity, "patient info updated field", Toast.LENGTH_SHORT).show();
+            adapter.updateData(emailFromIntent, nameInput, passInput, bloodInput, sitInput, heightInput, weightInput);
+
+            Toast.makeText(this, "Insertion successful", Toast.LENGTH_SHORT).show();
+            viewData(view);
+
         }
+    }
 
-
+    public void viewData(View view) {
+        String[] data = adapter.getData(emailFromIntent);
+        Intent intent = new Intent(this, ViewPatient.class);
+        intent.putExtra("Data", data);
+        startActivity(intent);
     }
 
 }

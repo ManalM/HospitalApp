@@ -44,7 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         try {
-            sqLiteDatabase.execSQL(TABLE_USER);
+            sqLiteDatabase.execSQL(CREATE_USER_TABLE);
         } catch (Exception e) {
             e.printStackTrace();
 
